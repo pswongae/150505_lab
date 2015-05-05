@@ -9,10 +9,12 @@ import java.net.Socket;
 public class ThreadHandler implements Runnable{
 	
 	private Socket clientSocket;
+	private int visitCounter;
 
-	public ThreadHandler(Socket clientSocket) {
+	public ThreadHandler(Socket clientSocket, int visitCounter) {
 		// TODO Auto-generated constructor stub
 		this.clientSocket = clientSocket;
+		this.visitCounter = visitCounter;
 	}
 
 	@Override
@@ -26,7 +28,7 @@ public class ThreadHandler implements Runnable{
 			while ((clientInput = in.readLine()) != null){
 				switch (clientInput){
 					case "visitor":
-						out.println("You're the " + MultiThreadServer.visitCounter + " visitor today");
+						out.println("You're the " + visitCounter + " visitor today");
 						break;
 					case "quit":
 						break;

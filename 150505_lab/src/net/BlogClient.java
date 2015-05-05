@@ -27,6 +27,7 @@ public class BlogClient {
 			in.close();
 			stdIn.close();
 			out.close();
+			clientSocket.close();
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
